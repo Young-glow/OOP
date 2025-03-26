@@ -2,33 +2,19 @@
 #include "func.hpp" 
 using namespace std;
 
-cina summa(const cina &a, const cina &b)
+void summa(cina &a, cina &b)
 {
-    cina produkt;
-    produkt.grn = a.grn + b.grn;
-    produkt.kop = a.kop + b.kop;
+    a.grn += b.grn;
+    a.kop += b.kop;
 
-    int grn = produkt.grn * 100;
-    int sum = grn + produkt.kop;
-
-    produkt.grn = sum / 100;
-    produkt.kop = sum % 100;
-
-    return produkt;
 } 
 
-cina multiply(const cina &a, int sht)
+void multiply(cina &a, int sht)
 {
-    cina produkt;
-    
     int mega_kop = (a.grn * 100 + a.kop) * sht;
-    produkt.grn = mega_kop / 100;
-    produkt.kop = mega_kop % 100;
-
-    return produkt;
-
+    a.grn = mega_kop / 100;
+    a.kop = mega_kop % 100;
 }
-
 
 void round(cina &produkt) 
 {
@@ -38,7 +24,6 @@ void round(cina &produkt)
     {
         produkt.kop -= ostacha;
     } 
-    
     else 
     {
         produkt.kop += (10 - ostacha);
@@ -63,15 +48,12 @@ void file()
         cerr << "Failed to open file" << endl;
         return;
     }
-
     
     string line;
     vector <cina> produkts;
     while (getline(chek, line)) // getline читає файл порядкам до поки вони в ньому є 
     {
-        
         regex shykgrn("((\\d+)\\s*грн\\s*(\\d+)\\s*коп),\\s((\\d+)\\s*шт)"); // d - число s - пробіл + - один або більше разів,  * - 0 або більше 
-        
         smatch result; // масив результатів пошуку regex
 
         sregex_iterator begin(line.begin(), line.end(), shykgrn); //спеціальний ітератор для масиву result реджекс
@@ -79,25 +61,19 @@ void file()
         
         if (regex_search(line, result, shykgrn))
         { 
-            
             for(sregex_iterator i = begin; i != end; i++)
             {
                 cina produkt = {stoi((*i)[1]), stoi((*i)[3])}; // об'єкт produkt типу cina де stoi((*i)[1]) записується в поле grn, stoi((*i)[3]) записується в поле kop
-                produkts.push_back(multiply(produkt, stoi((*i)[5]))); 
-
+                multiply(produkt, stoi((*i)[5])); 
+                produkts.push_back(produkt);
             }
-
-            
-            
         }
-        
-      
     }
     
     cina mega = {0, 0};
     for(int i = 0; i < produkts.size(); i++)
     {
-        mega = summa(mega, produkts[i]);   
+        summa(mega, produkts[i]);   
     }
     cout << "Сума чека: " << mega.grn << " грн " << mega.kop << " коп" << endl;
 
