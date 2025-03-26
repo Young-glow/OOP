@@ -12,8 +12,8 @@ struct cina
     short int kop;
 };
 
-cina summa(const cina &a, const cina &b);
-cina multiply(const cina &a, int sht);
+cina summa(cina &a, cina &b);
+cina multiply(cina &a, int sht);
 void round(cina &produkt);
 void file();
 
