@@ -3,24 +3,25 @@
 int main()
 {
     SetConsoleOutputCP(CP_UTF8);
+    
     Triangle T = {{0, 0}, {0, 0}, {0, 0}};
     
     std::cout << "Введість трикутник: \n Перша точка: ";
-    std::cin >> T.A.x >> T.A.y;
+    T.A = enterPoint();
     std::cout << " Друга точка: ";
-    std::cin >> T.B.x >> T.B.y;
+    T.B = enterPoint();
     std::cout << " Третя точка: ";
-    std::cin >> T.C.x >> T.C.y;
+    T.C = enterPoint();
 
     if(T.isDegenerate())
     {
         return 0;
     }
 
-   
-    std::cout << "Введіть кількість точок: ";
-    int n;
+    unsigned int n;
+    std::cout << "Введіть кількість точок: "; 
     std::cin >> n;
+    
 
     Point P;
     int m;
@@ -39,7 +40,7 @@ int main()
     for(int i = 0; i < n; i++)
         {
             std::cout << " Точка " << i+1 << ": ";
-            std::cin >> P.x >> P.y;
+            P = enterPoint();
 
             if(m == 1)
             {
