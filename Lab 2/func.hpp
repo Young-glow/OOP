@@ -1,6 +1,9 @@
 #include <iostream>
 #include <windows.h>
 #include <cmath>
+#include <string>
+#include <algorithm>
+#include <sstream>
 
 struct Point 
 {
@@ -11,7 +14,7 @@ typedef Point Vector; // синомізує вектор і точку
 
 double distance(const Point &p1, const Point &p2);
 
-double crossvProduct(const Vector &v1, const Vector &v2);
+double vProduct(const Vector &v1, const Vector &v2);
 
 enum class belongs // варіанти значень для функції contains
 {
@@ -34,3 +37,6 @@ struct Triangle
 };
 
 double heronArea(const Triangle &t);
+
+
+Point enterPoint();
