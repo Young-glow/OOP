@@ -42,21 +42,21 @@ belongs Triangle::contains(const Point &P) const
 
     if (Positive || Negative)
     {
-        return belongs::Inside; // якщо точка всередині трикутника, то повертаємо Inside
+        return belongs::Inside; 
     }
 
     else if (onBorder)
     {
-        return belongs::OnBorder; // якщо точка на границі трикутника, то повертаємо OnBorder
+        return belongs::OnBorder; 
     }
 
     else
     {
-        return belongs::Outside; // якщо точка зовні трикутника, то повертаємо Outside
+        return belongs::Outside; 
     }
 }
 
-bool Triangle::isDegenerate() const // перевіряє чи існує трикутник
+bool Triangle::isDegenerate() const 
 {
     if (area() <= 0)
     {
@@ -83,5 +83,26 @@ double heronArea(const Triangle &t)
     double c = distance(t.C, t.A);
     double s = (a + b + c) / 2;
     return sqrt(s * (s - a) * (s - b) * (s - c));
+}
+
+
+
+
+Point enterPoint()
+{
+    std::string str; 
+    std::cin >> std::ws;
+    getline(std::cin, str);
+    std::replace(std::begin(str), std::end(str), ',', '.');
+    std::stringstream ss(str);
+    double x, y;
+    if (!(ss >> x >> y)) 
+    {
+        std::cout << "Помилка вводу!" << std::endl;
+        return Point{0, 0};
+    }
+    Point p = {x, y};
+
+    return p;
 }
 
