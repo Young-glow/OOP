@@ -31,6 +31,8 @@ struct Triangle
 
     bool mArea(const Point &P) const;
 
+    bool segmentContains(const Point& P) const;
+
     belongs contains(const Point &P) const;
 
     bool isDegenerate() const;
