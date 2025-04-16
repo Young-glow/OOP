@@ -13,9 +13,13 @@ int main()
     std::cout << " Третя точка: ";
     T.C = enterPoint();
 
-    if(T.isDegenerate())
+    if (T.isDegenerate())
     {
-        return 0;
+        std::cout << "Трикутник вироджений" << std::endl;
+    }
+    else
+    {
+        std::cout << "Трикутник не вироджений" << std::endl;
     }
 
     unsigned int n;
