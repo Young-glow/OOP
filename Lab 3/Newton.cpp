@@ -1,5 +1,6 @@
 #include "Newton.hpp"
 #include <cmath>
+#include <iostream>
 
 double Newton::f(double x)
 {
@@ -11,17 +12,30 @@ double Newton::derivative(double x, double delta)
     return (f(x + delta) - f(x)) / delta;
 }
 
+void Newton::setEps(double eps)
+{
+    this->eps = eps;
+}
+
 int Newton::count(double& x)
 {
     double _x = x0;
 
     for (int i = 0; i < n; ++i)
     {
+        std::cout << i << std::endl;
         double d = derivative(_x);
-        if (std::abs(d) < 1e-12)
+        if (std::fabs(d) < 1e-12)
             return -1;
 
-        _x = _x - f(_x) / d;
+        double x_next = _x - f(_x) / d;
+
+        if (std::fabs(_x - x_next) <= eps)
+        {
+            break;
+        }
+
+        _x = x_next;
 
         if (_x < a || _x > b)
             return -1;
