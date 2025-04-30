@@ -40,15 +40,16 @@ int main()
 
     if (method == 2)
     {
-        std::cout << "Enter a, b, n, x0 (initial guess): ";
-        double a, b, x0, x;
+        std::cout << "Enter a, b, n, x0 (initial guess), eps: ";
+        double a, b, x0, x, eps;
         unsigned int n;
-        std::cin >> a >> b >> n >> x0;
-    
+        std::cin >> a >> b >> n >> x0 >> eps;
+        
         Newton* nPtr = new Newton();
         nPtr->setRange(a, b);
         nPtr->setN(n);
         nPtr->setX0(x0);
+        nPtr->setEps(eps); 
     
         if (nPtr->count(x) == 0)
         {
