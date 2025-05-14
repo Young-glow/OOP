@@ -1,8 +1,8 @@
 #ifndef GRIFFIN_HPP
 #define GRIFFIN_HPP
-#include "MagicalAnimals.hpp"
+#include "Entity.hpp"
 
-class Griffin : public MagicalAnimal
+class Griffin : virtual public Entity
 {
 public:
     Griffin();

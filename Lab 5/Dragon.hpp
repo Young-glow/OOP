@@ -1,8 +1,8 @@
 #ifndef DRAGON_HPP
 #define DRAGON_HPP
-#include "MagicalAnimals.hpp"
+#include "Entity.hpp"
 
-class Dragon : public MagicalAnimal
+class Dragon : virtual public Entity
 {
 public:
     Dragon();

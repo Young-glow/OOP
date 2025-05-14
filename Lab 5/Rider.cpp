@@ -16,7 +16,7 @@ Rider::~Rider() {
 
 void Rider::Print()
 {
-    std::cout << "Rider HP: " << hp << std::endl;
+    std::cout << "Rider: HP: " << hp << ", Position: (" << x << ", " << y << ")" << std::endl;
     std::cout << "Rider flies on a dragon and gains magical power!" << std::endl;
-    Think();
+
 }

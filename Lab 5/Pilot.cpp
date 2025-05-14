@@ -16,7 +16,6 @@ Pilot::~Pilot() {
 
 void Pilot::Print()
 {
-    std::cout << "Pilot HP: " << hp << std::endl;
+    std::cout << "Pilot HP: " << hp << ", Position: (" << x << ", " << y << ")" << std::endl;
     std::cout << "Pilot flies on a griffin and navigates the skies!" << std::endl;
-    Think();
 }

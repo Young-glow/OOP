@@ -1,9 +1,8 @@
 #ifndef PILOT_HPP
 #define PILOT_HPP
-#include "Person.hpp"
-#include "Griffin.hpp"
+#include "Entity.hpp"
 
-class Pilot : public Person
+class Pilot : virtual public Entity
 {
 public:
     Pilot();

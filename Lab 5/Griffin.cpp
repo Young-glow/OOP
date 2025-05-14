@@ -16,8 +16,6 @@ Griffin::~Griffin() {
 
 void Griffin::Print()
 {
-    std::cout << "Griffin HP: " << hp << std::endl;
-    std::cout << "Griffin flies with majesty!" << std::endl;
-    std::cout << "Griffin screeches!" << std::endl;
-    CastSpell();
+    std::cout << "Griffin: HP: " << hp << ", Position: (" << x << ", " << y << ")" << std::endl;
+    std::cout << "Griffin flies with majesty and screeches!" << std::endl;                 
 }

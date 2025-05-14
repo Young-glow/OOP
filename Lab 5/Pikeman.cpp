@@ -12,11 +12,10 @@ Pikeman::Pikeman()
 
 Pikeman::~Pikeman() {
     std::cout << "Pikeman died" << std::endl;
-} 
+}
 
 void Pikeman::Print()
 {
-    std::cout << "Pikeman HP: " << hp << std::endl;
-    std::cout << "Pilot flies on a griffin and navigates the skies!" << std::endl;
-    Think();
+    std::cout << "Pikeman: HP: " << hp << ", Position: (" << x << ", " << y << ")" << std::endl;
+    std::cout << "Pikeman fights bravely with his pike!" << std::endl;                 
 }

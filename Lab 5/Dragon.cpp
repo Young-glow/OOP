@@ -17,9 +17,6 @@ Dragon::~Dragon() {
 
 void Dragon::Print()
 {
-    std::cout << "Dragon HP: " << hp << std::endl;
-    std::cout << "Dragon breathes fire!" << std::endl;
-    std::cout << "Dragon flies!" << std::endl;
-    std::cout << "Dragon roars!" << std::endl;
-    CastSpell();
+    std::cout << "Dragon: HP: " << hp << ", Position: (" << x << ", " << y << ")" << std::endl;
+    std::cout << "Dragon breathes fire, flies, and roars!" << std::endl;                 
 }

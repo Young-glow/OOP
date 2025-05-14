@@ -13,7 +13,7 @@ public:
   int x, y;
   std::string name;
 
-  virtual void Print();
+  virtual void Print() = 0;
 };
 
 #endif

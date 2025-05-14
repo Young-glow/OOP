@@ -2,41 +2,32 @@
 #include "Griffin.hpp"
 #include "Rider.hpp"
 #include "Pilot.hpp"
+#include "Pikeman.hpp"
 #include "PikemanRider.hpp"
+#include "Chimera.hpp"
 #include <iostream>
 #include <vector>
 
 int main()
 {
-  std::vector<Entity*> entities;
-  entities.push_back(new Dragon());
-  entities.push_back(new Griffin());
-  entities.push_back(new Rider());
-  entities.push_back(new Pilot());
-  entities.push_back(new PikemanRider());
+    std::vector<Entity*> entities;
+    entities.push_back(new Dragon());
+    entities.push_back(new Griffin());
+    entities.push_back(new Rider());
+    entities.push_back(new Pilot());
+    entities.push_back(new Pikeman());
+    entities.push_back(new PikemanRider());
+    entities.push_back(new Chimera());
 
-  while (true)
-  {
-    for (Entity *e : entities)
+    for (Entity* e : entities)
     {
-      e->Print();
+        e->Print();
     }
 
-    int x;
-    std::cout << "Enter 0 to exit, any other number to continue: ";
-    std::cin >> x;
-    
-    if (x == 0) {
-      break;
+    for (Entity* e : entities)
+    {
+        delete e; 
     }
-  }
 
-  // Звільнення пам'яті
-  for (Entity *e : entities)
-  {
-    delete e;
-  }
-  entities.clear();
-
-  return 0;
+    return 0;
 }
